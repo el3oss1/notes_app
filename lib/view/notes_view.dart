@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:notes_app/view/widgets/add_notes_bottom_sheet.dart';
 
 import 'package:notes_app/view/widgets/notes_view_body.dart';
 
@@ -11,9 +12,16 @@ class NotesView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        // استخدم named parameter
-        onPressed: () {},
-        child: Icon(FontAwesomeIcons.plus), // حط الـ Icon حول FontAwesomeIcons
+        onPressed: () {
+          showModalBottomSheet(
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            context: context,
+            builder: (context) {
+              return const AddNotesBottomSheet();
+            },
+          );
+        },
+        child: Icon(FontAwesomeIcons.plus),
       ),
       body: const NotesViewBody(),
     );
