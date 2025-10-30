@@ -1,11 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:notes_app/view/widgets/add_notes_bottom_sheet.dart';
 
 import 'package:notes_app/view/widgets/notes_view_body.dart';
 
-import '../constants.dart';
 
 class NotesView extends StatelessWidget {
   const NotesView({super.key});

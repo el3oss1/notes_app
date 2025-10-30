@@ -1,30 +1,17 @@
 import 'package:flutter/cupertino.dart';
 
-import 'custom_button.dart';
-import 'custom_text_field.dart';
+import 'add_note_form.dart';
+
 
 class AddNotesBottomSheet extends StatelessWidget {
   const AddNotesBottomSheet({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(height: 32),
-            CustomTextField(hint: 'title'),
-            SizedBox(height: 20),
-            CustomTextField(hint: 'content', maxLines: 5),
-            SizedBox(height: 80),
-            CustomButton(
-              hint: 'Add',
-            ),
-            SizedBox(height: 20),
-          ],
-        ),
-      ),
+    return const Padding(
+      padding:  EdgeInsets.symmetric(horizontal: 16.0),
+      child: SingleChildScrollView(child: AddNoteForm()),
     );
   }
 }
+

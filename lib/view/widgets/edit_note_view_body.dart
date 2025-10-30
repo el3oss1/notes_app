@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:notes_app/view/widgets/custom_app_bar.dart';
 
 import 'custom_button.dart';

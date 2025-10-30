@@ -9,6 +9,8 @@ android {
     namespace = "com.example.notes_app"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
+    ndkVersion = "27.0.12077973"  // ← ADD THIS LINE to override
+
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
