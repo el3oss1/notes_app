@@ -18,6 +18,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
   final GlobalKey<FormState> formKey = GlobalKey();
   AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
   String? title, subtitle;
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -41,23 +42,29 @@ class _AddNoteFormState extends State<AddNoteForm> {
             maxLines: 5,
           ),
           const SizedBox(height: 80),
-          CustomButton(
-            onTap: () {
-              if (formKey.currentState!.validate()) {
-                formKey.currentState!.save();
-                var noteModel = NoteModel(
-                  color: Colors.brown.hashCode,
-                  title: title!,
-                  date: DateTime.now().toString(),
-                  subtitle: subtitle!,
-                );
-                BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
-              } else {
-                autoValidateMode = AutovalidateMode.always;
-                setState(() {});
-              }
+          BlocBuilder<AddNoteCubit, AddNoteState>(
+            builder: (context, state) {
+              return CustomButton(
+                isLoading: state is AddNoteLoading ? true : false,
+                onTap: () {
+                  if (formKey.currentState!.validate()) {
+                    formKey.currentState!.save();
+                    var noteModel = NoteModel(
+                      color: Colors.brown.hashCode,
+                      title: title!,
+                      date: DateTime.now().toString(),
+                      subtitle: subtitle!,
+                    );
+                    BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
+                  } else {
+                    autoValidateMode = AutovalidateMode.always;
+                    setState(() {});
+                  }
+                },
+
+                hint: 'Add',
+              );
             },
-            hint: 'Add',
           ),
           const SizedBox(height: 20),
         ],
