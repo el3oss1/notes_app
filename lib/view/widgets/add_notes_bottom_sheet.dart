@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
+import 'package:notes_app/cubits/note_cubit/note_cubit.dart';
 
 import 'add_note_form.dart';
 
@@ -22,6 +23,7 @@ class _AddNotesBottomSheetState extends State<AddNotesBottomSheet> {
             print('failed${state.errorMessage}');
           }
           if (state is AddNoteSuccess) {
+            BlocProvider.of<NoteCubit>(context).fetchAllNotes();
             Navigator.pop(context);
           }
         },
