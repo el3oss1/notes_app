@@ -9,11 +9,12 @@ import 'package:notes_app/view/widgets/notes_view_body.dart';
 
 class NotesView extends StatelessWidget {
   const NotesView({super.key});
+  
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => NoteCubit()..fetchAllNotes(),
+      create: (context) => NoteCubit(),
 
       child: Scaffold(
         floatingActionButton: FloatingActionButton(
