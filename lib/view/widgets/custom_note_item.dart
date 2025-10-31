@@ -20,7 +20,7 @@ class NoteItem extends StatelessWidget {
           ),
         );
       },
-      child:  Container(
+      child: Container(
         padding: EdgeInsets.only(top: 24, bottom: 24, left: 16),
 
         decoration: BoxDecoration(
@@ -47,7 +47,9 @@ class NoteItem extends StatelessWidget {
                 ),
               ),
               trailing: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  note.delete();
+                },
                 icon: Icon(
                   FontAwesomeIcons.trash,
                   color: Colors.black,

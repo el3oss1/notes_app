@@ -24,7 +24,6 @@ class _AddNoteFormState extends State<AddNoteForm> {
   Widget build(BuildContext context) {
     return Form(
       key: formKey,
-      autovalidateMode: AutovalidateMode.disabled,
       child: Column(
         children: [
           const SizedBox(height: 32),
@@ -51,7 +50,9 @@ class _AddNoteFormState extends State<AddNoteForm> {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
                     var currentDate = DateTime.now();
-                    var formattedCurrentDate = DateFormat('MMM dd, yyyy').format(currentDate);
+                    var formattedCurrentDate = DateFormat(
+                      'MMM dd, yyyy',
+                    ).format(currentDate);
                     final noteModel = NoteModel(
                       color: Colors.brown.value,
                       title: title!,
